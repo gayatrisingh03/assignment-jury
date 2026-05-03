@@ -547,6 +547,103 @@ section{
     box-shadow:0 18px 34px rgba(31,122,118,0.16);
 }
 
+/* DOCUMENTARY */
+.documentary{
+    background:#fff8ef;
+}
+
+.documentary-player{
+    display:grid;
+    grid-template-columns:minmax(0,1.45fr) minmax(280px,0.55fr);
+    gap:24px;
+    align-items:stretch;
+}
+
+.documentary-screen{
+    position:relative;
+    min-height:440px;
+    border-radius:8px;
+    overflow:hidden;
+    background:#211512;
+    box-shadow:0 18px 42px rgba(94,36,26,0.18);
+}
+
+.documentary-screen img{
+    width:100%;
+    height:100%;
+    min-height:440px;
+    object-fit:cover;
+    display:block;
+}
+
+.documentary-caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:18px 22px;
+    color:white;
+    background:linear-gradient(transparent,rgba(0,0,0,0.72));
+    font-weight:bold;
+}
+
+.documentary-info{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.documentary-info h3{
+    color:var(--maroon);
+    font-size:26px;
+}
+
+.documentary-info p{
+    color:var(--muted);
+}
+
+.documentary-controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.documentary-controls button{
+    border:0;
+    border-radius:999px;
+    padding:10px 16px;
+    background:var(--maroon);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.documentary-controls button:nth-child(2){
+    background:var(--teal);
+}
+
+.documentary-info audio{
+    width:100%;
+}
+
+.documentary-progress{
+    height:8px;
+    background:var(--cream);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.documentary-progress span{
+    display:block;
+    height:100%;
+    width:0;
+    background:var(--teal);
+}
+
 .step-media{
     height:190px;
     position:relative;
@@ -718,6 +815,7 @@ footer{
 @media(max-width:900px){
     .nav-inner,
     .about-grid,
+    .documentary-player,
     .contact-grid{
         grid-template-columns:1fr;
         display:grid;
@@ -785,6 +883,7 @@ footer{
 <li><a href="#products">Products</a></li>
 <li><a href="#artisans">Artisans</a></li>
 <li><a href="#process">Process</a></li>
+<li><a href="#documentary">Video</a></li>
 <li><a href="#gallery">Gallery</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -995,6 +1094,34 @@ footer{
 </div>
 </section>
 
+<section class="documentary" id="documentary">
+<div class="container">
+<p class="section-kicker">Documentary Video</p>
+<h2>Telangana Ikat: From Thread to Textile</h2>
+<p class="section-intro">A narrated visual journey through the images, craft process, products, and artisan profiles documented in this project.</p>
+
+<div class="documentary-player">
+<div class="documentary-screen">
+<img id="documentaryImage" src="assignment-pictures/hero.JPG" alt="Telangana Ikat documentary slideshow">
+<div class="documentary-caption" id="documentaryCaption">Design marking and the beginning of the Ikat story</div>
+</div>
+<div class="documentary-info">
+<h3>Project Documentary</h3>
+<p>This documentary player combines the project photographs with a voice narration based on the website's Ikat process, products, and artisan stories.</p>
+<audio id="documentaryAudio" controls preload="metadata">
+<source src="assignment-pictures/documentary-narration.wav" type="audio/wav">
+</audio>
+<div class="documentary-controls">
+<button type="button" id="documentaryPlay">Play</button>
+<button type="button" id="documentaryPause">Pause</button>
+</div>
+<div class="documentary-progress"><span id="documentaryProgress"></span></div>
+<p id="documentaryCount">Image 1 of 39</p>
+</div>
+</div>
+</div>
+</section>
+
 <section id="gallery">
 <div class="container">
 <p class="section-kicker">Visual Story</p>
@@ -1067,5 +1194,82 @@ footer{
 </footer>
 
 <a class="top-link" href="#top" aria-label="Back to top">↑</a>
+<script>
+const documentarySlides = [
+    ["assignment-pictures/hero.JPG","Design marking and the beginning of the Ikat story"],
+    ["assignment-pictures/hero-finished-textile.jpg","Finished Ikat textile with a soft geometric rhythm"],
+    ["assignment-pictures/about.jpg","The craft setting of Lingala Ghanpur"],
+    ["assignment-pictures/about-artisan.jpg","Artisan work at the heart of the textile"],
+    ["assignment-pictures/gallery-design-marking.JPG","Patterns marked directly on the stretched yarn"],
+    ["assignment-pictures/gallery-raw-yarn.jpg","Raw yarn prepared before colour is added"],
+    ["assignment-pictures/gallery-colour.jpg","Colour planning for the Ikat palette"],
+    ["assignment-pictures/gallery-bobbins.jpg","Bobbins arranged for the loom"],
+    ["assignment-pictures/gallery-detail.jpg","Close detail of the Ikat surface"],
+    ["assignment-pictures/gallery-dyeing.jpg","Yarn dyeing in the workshop"],
+    ["assignment-pictures/gallery-drying.jpg","Dyed yarn drying before weaving"],
+    ["assignment-pictures/gallery-washing.jpg","Washing and finishing stages"],
+    ["assignment-pictures/gallery-weaving.jpg","The loom brings the marked yarn into cloth"],
+    ["assignment-pictures/gallery-community.jpg","The artisan community behind the craft"],
+    ["assignment-pictures/gallery-fashion.jpg","Ikat as wearable textile"],
+    ["assignment-pictures/gallery-styling.jpg","Finished cloth styled for contemporary use"],
+    ["assignment-pictures/process-boiling.jpg","Yarn boiling and cleaning"],
+    ["assignment-pictures/process-winding.jpg","Winding yarn onto bobbins"],
+    ["assignment-pictures/process-marking.JPG","Design marking before dyeing"],
+    ["assignment-pictures/process-tying.jpg","Tying selected sections for resist dyeing"],
+    ["assignment-pictures/process-dyeing.jpg","Building colour through dye baths"],
+    ["assignment-pictures/process-drying.jpg","Drying the dyed yarn"],
+    ["assignment-pictures/process-weaving.jpg","Aligning threads on the loom"],
+    ["assignment-pictures/product-saree.jpg","Finished saree from the Ikat tradition"],
+    ["assignment-pictures/product-saree-fabric.jpg","Saree fabric with woven motif"],
+    ["assignment-pictures/product-dupatta.jpg","Dupatta and light textile possibilities"],
+    ["assignment-pictures/product-menswear.jpg","Menswear material and craft application"],
+    ["assignment-pictures/product-home.jpg","Home textile usage"],
+    ["assignment-pictures/product-fabric-yardage.jpg","Fabric yardage ready for design"],
+    ["assignment-pictures/product-dyed-yarn.jpg","Dyed yarn before it reaches the loom"],
+    ["assignment-pictures/product-loom-panel.jpg","Textile panel in progress"],
+    ["assignment-pictures/photo-contact-sheet.jpg","Project contact sheet of visual references"],
+    ["assignment-pictures/pdf-extracted/pdf-image-23.jpg","Hands reading the finished Ikat surface"],
+    ["assignment-pictures/pdf-extracted/pdf-image-25.jpg","Maheswaram Revathi, weaver"],
+    ["assignment-pictures/pdf-extracted/pdf-image-26.jpg","Maheswaram Raghunandhan, weaver"],
+    ["assignment-pictures/pdf-extracted/pdf-image-42.jpg","Maheswaram Srinivas, weaver"],
+    ["assignment-pictures/pdf-extracted/pdf-image-43.jpg","Bitala Uppendra, weaver's assistant"],
+    ["assignment-pictures/pdf-extracted/pdf-image-45.jpg","Maheswaram Somalakshmi, retired weaver"],
+    ["assignment-pictures/pdf-extracted/pdf-image-44.jpg","Maheswaram Somaya, retired weaver"]
+];
+
+const documentaryAudio = document.getElementById("documentaryAudio");
+const documentaryImage = document.getElementById("documentaryImage");
+const documentaryCaption = document.getElementById("documentaryCaption");
+const documentaryProgress = document.getElementById("documentaryProgress");
+const documentaryCount = document.getElementById("documentaryCount");
+const documentaryPlay = document.getElementById("documentaryPlay");
+const documentaryPause = document.getElementById("documentaryPause");
+
+function updateDocumentarySlide(){
+    if(!documentaryAudio || !documentaryImage) return;
+    const duration = documentaryAudio.duration || 150;
+    const ratio = duration ? documentaryAudio.currentTime / duration : 0;
+    const index = Math.min(documentarySlides.length - 1, Math.floor(ratio * documentarySlides.length));
+    const slide = documentarySlides[index];
+    documentaryImage.src = slide[0];
+    documentaryCaption.textContent = slide[1];
+    documentaryCount.textContent = `Image ${index + 1} of ${documentarySlides.length}`;
+    documentaryProgress.style.width = `${Math.min(100, ratio * 100)}%`;
+}
+
+if(documentaryAudio){
+    documentaryAudio.addEventListener("timeupdate", updateDocumentarySlide);
+    documentaryAudio.addEventListener("loadedmetadata", updateDocumentarySlide);
+    documentaryAudio.addEventListener("ended", updateDocumentarySlide);
+}
+
+if(documentaryPlay){
+    documentaryPlay.addEventListener("click", () => documentaryAudio.play());
+}
+
+if(documentaryPause){
+    documentaryPause.addEventListener("click", () => documentaryAudio.pause());
+}
+</script>
 </body>
 </html>
