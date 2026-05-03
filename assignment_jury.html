@@ -464,23 +464,61 @@ section{
 .artisan-panel{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:22px;
 }
 
 .artisan-card{
-    background:var(--cream);
+    background:white;
     border:1px solid var(--line);
     border-radius:8px;
-    padding:24px;
+    overflow:hidden;
+    box-shadow:0 10px 26px rgba(94,36,26,0.08);
+}
+
+.artisan-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    background:var(--cream);
+    display:block;
+}
+
+.artisan-body{
+    padding:20px;
 }
 
 .artisan-card h3{
     color:var(--maroon);
-    margin-bottom:8px;
+    margin-bottom:10px;
+    font-size:22px;
 }
 
 .artisan-card p{
     color:var(--muted);
+    margin-bottom:12px;
+}
+
+.artisan-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.artisan-meta span{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--rust);
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 10px;
+}
+
+.artisan-role{
+    color:var(--teal);
+    font-weight:bold;
+    margin-bottom:8px;
 }
 
 /* PROCESS */
@@ -852,19 +890,61 @@ footer{
 <div class="container">
 <p class="section-kicker">People Behind the Craft</p>
 <h2>Artisans of Lingala Ghanpur</h2>
-<p class="section-intro">The final textile carries the work of many hands, from preparing yarn to finishing the woven cloth.</p>
+<p class="section-intro">The final textile carries the work of many hands. These profiles from the field documentation show the weavers, assistants, and elders who keep the Ikat tradition moving across generations.</p>
 <div class="artisan-panel">
 <div class="artisan-card">
-<h3>Yarn Preparation</h3>
-<p>Threads are cleaned, separated, and prepared carefully so the fabric can take colour evenly.</p>
+<img src="assignment-pictures/pdf-extracted/pdf-image-25.jpg" alt="Line portrait of Maheswaram Revathi">
+<div class="artisan-body">
+<h3>Maheswaram Revathi</h3>
+<div class="artisan-meta"><span>Female</span><span>Age 27</span><span>Weaver</span></div>
+<p class="artisan-role">Home-based Ikat weaving</p>
+<p>Revathi is one of the few women in Lingala Ghanpur engaged in weaving, a physically demanding task traditionally done by men. A graduate and mother of two, she works with her husband across yarn preparation, dyeing, and weaving.</p>
+</div>
 </div>
 <div class="artisan-card">
-<h3>Dyeing Support</h3>
-<p>Resist tying and dye work help create the blurred geometric beauty that Ikat is known for.</p>
+<img src="assignment-pictures/pdf-extracted/pdf-image-26.jpg" alt="Line portrait of Maheswaram Raghunandhan">
+<div class="artisan-body">
+<h3>Maheswaram Raghunandhan</h3>
+<div class="artisan-meta"><span>Male</span><span>Age 39</span><span>Weaver</span></div>
+<p class="artisan-role">Third-generation master weaver</p>
+<p>Raghunandhan formerly managed a team of nine artisans in his family workshop. He now contributes to a government initiative developing lighter, softer fabrics while preserving the traditional character of Ikat.</p>
+</div>
 </div>
 <div class="artisan-card">
-<h3>Loom Weaving</h3>
-<p>Weavers align the dyed yarns on the loom and slowly bring the planned pattern into cloth.</p>
+<img src="assignment-pictures/pdf-extracted/pdf-image-42.jpg" alt="Line portrait of Maheswaram Srinivas">
+<div class="artisan-body">
+<h3>Maheswaram Srinivas</h3>
+<div class="artisan-meta"><span>Male</span><span>Age 40</span><span>Weaver</span></div>
+<p class="artisan-role">Mobile weaving support</p>
+<p>Srinivas is a full-time Ikat weaver whose work involves travelling between locations to complete different stages of the weaving process. He is valued for steady support within the village weaving network.</p>
+</div>
+</div>
+<div class="artisan-card">
+<img src="assignment-pictures/pdf-extracted/pdf-image-43.jpg" alt="Line portrait of Bitala Uppendra">
+<div class="artisan-body">
+<h3>Bitala Uppendra</h3>
+<div class="artisan-meta"><span>Female</span><span>Age 35</span><span>Weaver's Assistant</span></div>
+<p class="artisan-role">Pre-loom preparation</p>
+<p>Uppendra learned Ikat work by assisting family members from childhood. She supports yarn preparation and dyeing, passes the skills to her children, and helps maintain the quality of her family's home-based practice.</p>
+</div>
+</div>
+<div class="artisan-card">
+<img src="assignment-pictures/pdf-extracted/pdf-image-45.jpg" alt="Line portrait of Maheswaram Somalakshmi">
+<div class="artisan-body">
+<h3>Maheswaram Somalakshmi</h3>
+<div class="artisan-meta"><span>Female</span><span>Age 80</span><span>Retired Weaver</span></div>
+<p class="artisan-role">Knowledge keeper</p>
+<p>With over 40 years of experience, Somalakshmi worked across Ikat stages, weaving silk sarees, cotton fabrics, dhotis, and towels. Her knowledge has passed to children and grandchildren who continue the craft.</p>
+</div>
+</div>
+<div class="artisan-card">
+<img src="assignment-pictures/pdf-extracted/pdf-image-44.jpg" alt="Line portrait of Maheswaram Somaya">
+<div class="artisan-body">
+<h3>Maheswaram Somaya</h3>
+<div class="artisan-meta"><span>Male</span><span>Age 92</span><span>Retired Weaver</span></div>
+<p class="artisan-role">Elder of the weaving community</p>
+<p>Somaya moved from rice mill labour and agriculture into weaving dhotis at home. His journey helped a small practice grow into a weaving community that continues through later generations.</p>
+</div>
 </div>
 </div>
 </div>
@@ -967,14 +1047,14 @@ footer{
 <div class="contact-grid">
 <div class="contact-info">
 <h3>Gayatri Singh</h3>
-<p>Email: example@email.com</p>
-<p>Phone: 8400XXXXXX</p>
+<p>Email: 03gayatri.shweta@.com</p>
+<p>Phone: 8400410992</p>
 <p>Location: Telangana, India</p>
 <p>Project: Ikat Craft Website</p>
 </div>
 <form class="contact-form">
-<input type="text" placeholder="Gayatri Singh>
-<input type="email" placeholder="">
+<input type="text" placeholder="Your name">
+<input type="email" placeholder="Your email">
 <textarea placeholder="Write your message"></textarea>
 <button class="btn btn-primary" type="button">Send Message</button>
 </form>
