@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikat Craft of Telangana</title>
+<style>
+:root{
+    --maroon:#6b2737;
+    --deep:#241313;
+    --rust:#b55239;
+    --teal:#1f7a76;
+    --gold:#d8a13b;
+    --cream:#fff8ed;
+    --paper:#f6efe3;
+    --ink:#2c2522;
+    --muted:#6d625d;
+    --line:rgba(107,39,55,0.18);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+}
+
+.container{
+    width:min(1120px, 92%);
+    margin:auto;
+}
+
+.section-kicker{
+    color:var(--rust);
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1.4px;
+    text-align:center;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+h2{
+    color:var(--maroon);
+    font-size:36px;
+    line-height:1.15;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.section-intro{
+    color:var(--muted);
+    font-size:18px;
+    max-width:760px;
+    margin:0 auto 34px;
+    text-align:center;
+}
+
+/* NAVBAR */
+nav{
+    background:rgba(36,19,19,0.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:14px 0;
+}
+
+.brand{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    padding:8px 11px;
+    border-radius:6px;
+    transition:0.25s ease;
+}
+
+nav ul li a:hover{
+    background:var(--rust);
+}
+
+/* HERO SECTION */
+header{
+    min-height:82vh;
+    display:flex;
+    align-items:center;
+    color:white;
+    background:
+        linear-gradient(90deg, rgba(36,19,19,0.86), rgba(36,19,19,0.52), rgba(36,19,19,0.18)),
+        url('assignment-pictures/hero-finished-textile.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    width:min(720px, 92%);
+    margin-left:4%;
+    padding:80px 0;
+}
+
+.tagline{
+    display:inline-block;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.28);
+    border-radius:999px;
+    padding:8px 14px;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+header h1{
+    font-size:clamp(42px, 7vw, 72px);
+    line-height:1.02;
+    margin-bottom:20px;
+}
+
+header p{
+    font-size:20px;
+    max-width:680px;
+    margin-bottom:28px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    border-radius:6px;
+    padding:12px 18px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.25s ease;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:var(--deep);
+}
+
+.btn-primary:hover{
+    background:#f1bf54;
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    color:white;
+    border:1px solid rgba(255,255,255,0.55);
+}
+
+.btn-secondary:hover{
+    background:white;
+    color:var(--deep);
+}
+
+/* SECTIONS */
+section{
+    padding:68px 0;
+}
+
+.highlight-band{
+    background:var(--deep);
+    color:white;
+    padding:24px 0;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    text-align:center;
+}
+
+.stat{
+    border-right:1px solid rgba(255,255,255,0.16);
+    padding:8px 14px;
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    display:block;
+    color:var(--gold);
+    font-size:28px;
+}
+
+.stat span{
+    color:#f3e6d1;
+    font-size:14px;
+}
+
+/* ABOUT */
+.about-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:32px;
+    align-items:center;
+}
+
+.about-text{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:30px;
+}
+
+.about-text p{
+    color:var(--muted);
+    font-size:18px;
+    margin-bottom:16px;
+}
+
+.feature-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:18px;
+}
+
+.feature{
+    background:white;
+    border-left:4px solid var(--teal);
+    border-radius:6px;
+    padding:14px;
+    box-shadow:0 8px 20px rgba(36,19,19,0.06);
+}
+
+.feature strong{
+    color:var(--maroon);
+}
+
+.about-image{
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 18px 40px rgba(36,19,19,0.18);
+}
+
+.about-image img{
+    height:470px;
+    width:100%;
+    object-fit:cover;
+}
+
+/* PRODUCTS */
+.products{
+    background:#fffaf1;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(36,19,19,0.08);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 34px rgba(36,19,19,0.16);
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    margin-bottom:8px;
+    color:var(--maroon);
+}
+
+.card-content p{
+    color:var(--muted);
+    margin-bottom:14px;
+}
+
+.price-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.price{
+    color:var(--teal);
+    font-weight:bold;
+}
+
+.small-link{
+    color:var(--rust);
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* ARTISANS */
+.artisan-panel{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.artisan-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px;
+}
+
+.artisan-card h3{
+    color:var(--maroon);
+    margin-bottom:8px;
+}
+
+.artisan-card p{
+    color:var(--muted);
+}
+
+/* PROCESS */
+.process{
+    background:#f0f7f6;
+}
+
+.process-steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid rgba(31,122,118,0.2);
+    border-radius:8px;
+    padding:24px;
+    box-shadow:0 8px 20px rgba(31,122,118,0.08);
+    position:relative;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    background:var(--teal);
+    color:white;
+    border-radius:50%;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.step h3{
+    color:var(--maroon);
+    margin-bottom:8px;
+}
+
+.step p{
+    color:var(--muted);
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.gallery figure{
+    border-radius:8px;
+    overflow:hidden;
+    position:relative;
+    min-height:240px;
+    background:#ddd;
+}
+
+.gallery img{
+    width:100%;
+    height:100%;
+    min-height:240px;
+    object-fit:cover;
+    transition:0.35s ease;
+}
+
+.gallery figcaption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    color:white;
+    background:linear-gradient(transparent, rgba(0,0,0,0.72));
+    padding:42px 14px 14px;
+    font-weight:bold;
+}
+
+.gallery figure:hover img{
+    transform:scale(1.07);
+}
+
+/* CONTACT */
+.contact{
+    background:var(--deep);
+    color:white;
+}
+
+.contact h2,
+.contact .section-kicker{
+    color:white;
+}
+
+.contact .section-intro{
+    color:#eadfce;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:28px;
+    align-items:start;
+}
+
+.contact-info,
+.contact-form{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:8px;
+    padding:24px;
+}
+
+.contact-info p{
+    margin:12px 0;
+    color:#f4e7d7;
+    font-size:17px;
+}
+
+.contact-form{
+    display:grid;
+    gap:14px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:6px;
+    background:rgba(255,255,255,0.92);
+    color:var(--ink);
+    padding:12px;
+    font:inherit;
+}
+
+.contact-form textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.contact-form button{
+    border:0;
+    cursor:pointer;
+    width:fit-content;
+}
+
+/* FOOTER */
+footer{
+    background:#120b0b;
+    color:#f3e6d1;
+    text-align:center;
+    padding:20px;
+}
+
+.top-link{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:var(--maroon);
+    color:white;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 10px 24px rgba(0,0,0,0.22);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .nav-inner,
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        display:grid;
+    }
+
+    .brand{
+        text-align:center;
+    }
+
+    .stats,
+    .artisan-panel,
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat{
+        border-right:0;
+    }
+}
+
+@media(max-width:600px){
+    nav ul{
+        gap:3px;
+    }
+
+    nav ul li a{
+        font-size:14px;
+        padding:7px 8px;
+    }
+
+    header{
+        min-height:76vh;
+    }
+
+    .hero-content{
+        margin:auto;
+    }
+
+    header p,
+    .section-intro,
+    .about-text p{
+        font-size:16px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    .stats,
+    .feature-list,
+    .artisan-panel,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+<nav>
+<div class="container nav-inner">
+<a class="brand" href="#top">Telangana Ikat</a>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#artisans">Artisans</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<header>
+<div class="hero-content">
+<span class="tagline">Handloom Heritage of Lingala Ghanpur</span>
+<h1>Ikat Craft of Telangana</h1>
+<p>Tradition woven into every thread. Discover hand-dyed yarns, precise geometric patterns, and the artisans preserving one of India's most graceful weaving traditions.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#products">Explore Products</a>
+<a class="btn btn-secondary" href="#process">See the Process</a>
+</div>
+</div>
+</header>
+
+<section class="highlight-band">
+<div class="container stats">
+<div class="stat"><strong>7</strong><span>major making stages</span></div>
+<div class="stat"><strong>100%</strong><span>handcrafted textile work</span></div>
+<div class="stat"><strong>4</strong><span>featured product categories</span></div>
+<div class="stat"><strong>1</strong><span>living craft community</span></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="container about-grid">
+<div class="about-text">
+<p class="section-kicker" style="text-align:left;">About Ikat</p>
+<h2 style="text-align:left;">A Pattern Planned Before the Cloth Exists</h2>
+<p>Ikat weaving begins with yarn preparation, tying, dyeing, drying, and careful alignment on the loom. The design is created before weaving, which makes every finished fabric a mix of mathematics, memory, and hand skill.</p>
+<p>The weaving community is closely connected with the Padmashali tradition, and women contribute strongly through yarn preparation, dyeing support, finishing, and weaving activities.</p>
+<div class="feature-list">
+<div class="feature"><strong>Identity</strong><br>Geometric motifs and vibrant colour stories.</div>
+<div class="feature"><strong>Comfort</strong><br>Lightweight cotton and silk fabrics for daily and festive use.</div>
+<div class="feature"><strong>Skill</strong><br>Pattern accuracy depends on precise tying and loom control.</div>
+<div class="feature"><strong>Culture</strong><br>A craft that protects local heritage and livelihood.</div>
+</div>
+</div>
+<div class="about-image">
+<img src="assignment-pictures/about-artisan.jpg" alt="Woman artisan working on Ikat weaving">
+</div>
+</div>
+</section>
+
+<section class="products" id="products">
+<div class="container">
+<p class="section-kicker">Collections</p>
+<h2>Our Products</h2>
+<p class="section-intro">Selected visuals from the assignment showing finished cloth, fabric detail, dyed yarn, and loom work.</p>
+
+<div class="cards">
+<div class="card">
+<img src="assignment-pictures/product-saree-fabric.jpg" alt="Finished red Ikat saree fabric on loom">
+<div class="card-content">
+<h3>Ikat Saree Fabric</h3>
+<p>Finished patterned fabric showing the bold red, white, and geometric identity of Ikat weaving.</p>
+<div class="price-row"><span class="price">Finished textile</span><a class="small-link" href="#contact">Enquire</a></div>
+</div>
+</div>
+
+<div class="card">
+<img src="assignment-pictures/product-fabric-yardage.jpg" alt="Purple Ikat fabric detail">
+<div class="card-content">
+<h3>Fabric Yardage</h3>
+<p>Close textile detail highlighting colour blending, borders, and the soft blur of resist-dyed yarns.</p>
+<div class="price-row"><span class="price">Clothing material</span><a class="small-link" href="#contact">Enquire</a></div>
+</div>
+</div>
+
+<div class="card">
+<img src="assignment-pictures/product-dyed-yarn.jpg" alt="Dyed yarn cones used for Ikat weaving">
+<div class="card-content">
+<h3>Dyed Yarn</h3>
+<p>Prepared yarn cones that carry the colour plan before the final cloth is woven on the loom.</p>
+<div class="price-row"><span class="price">Pre-loom material</span><a class="small-link" href="#contact">Enquire</a></div>
+</div>
+</div>
+
+<div class="card">
+<img src="assignment-pictures/product-loom-panel.jpg" alt="Ikat panel being woven on loom">
+<div class="card-content">
+<h3>Loom Textile Panel</h3>
+<p>A fabric panel in progress, showing how the marked yarns align into a visible motif.</p>
+<div class="price-row"><span class="price">Work in progress</span><a class="small-link" href="#contact">Enquire</a></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="artisans">
+<div class="container">
+<p class="section-kicker">People Behind the Craft</p>
+<h2>Artisans of Lingala Ghanpur</h2>
+<p class="section-intro">The final textile carries the work of many hands, from preparing yarn to finishing the woven cloth.</p>
+<div class="artisan-panel">
+<div class="artisan-card">
+<h3>Yarn Preparation</h3>
+<p>Threads are cleaned, separated, and prepared carefully so the fabric can take colour evenly.</p>
+</div>
+<div class="artisan-card">
+<h3>Dyeing Support</h3>
+<p>Resist tying and dye work help create the blurred geometric beauty that Ikat is known for.</p>
+</div>
+<div class="artisan-card">
+<h3>Loom Weaving</h3>
+<p>Weavers align the dyed yarns on the loom and slowly bring the planned pattern into cloth.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="process" id="process">
+<div class="container">
+<p class="section-kicker">Making Process</p>
+<h2>How Ikat Is Made</h2>
+<p class="section-intro">Every step matters because the pattern is prepared in the yarn before the fabric is woven.</p>
+
+<div class="process-steps">
+<div class="step"><div class="step-number">1</div><h3>Yarn Boiling</h3><p>Threads are cleaned and softened for better dye absorption.</p></div>
+<div class="step"><div class="step-number">2</div><h3>Winding</h3><p>Yarn is wound carefully onto bobbins for handling and marking.</p></div>
+<div class="step"><div class="step-number">3</div><h3>Design Marking</h3><p>Pattern areas are measured and marked directly on the yarn.</p></div>
+<div class="step"><div class="step-number">4</div><h3>Tying</h3><p>Selected sections are tightly tied so they resist the dye.</p></div>
+<div class="step"><div class="step-number">5</div><h3>Dyeing</h3><p>Yarns are dyed in layers to build the final colour palette.</p></div>
+<div class="step"><div class="step-number">6</div><h3>Drying</h3><p>Dyed yarns are dried, checked, and prepared for weaving.</p></div>
+<div class="step"><div class="step-number">7</div><h3>Weaving</h3><p>The final cloth is woven slowly on the loom with careful alignment.</p></div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="container">
+<p class="section-kicker">Visual Story</p>
+<h2>Gallery</h2>
+<p class="section-intro">A selected sequence from your assignment photographs, arranged to show the making journey from preparation to final weaving.</p>
+
+<div class="gallery">
+<figure>
+<img src="assignment-pictures/gallery-design-marking.JPG" alt="Design marking on yarn">
+<figcaption>Design Marking</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-raw-yarn.jpg" alt="Raw yarn prepared for Ikat weaving">
+<figcaption>Raw Yarn</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-washing.jpg" alt="Yarn washing process">
+<figcaption>Washing</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-dyeing.jpg" alt="Yarn dyeing process">
+<figcaption>Dyeing</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-drying.jpg" alt="Yarn drying process">
+<figcaption>Drying</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-bobbins.jpg" alt="Colourful bobbins for weaving">
+<figcaption>Bobbins</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-weaving.jpg" alt="Weaving on loom">
+<figcaption>Weaving</figcaption>
+</figure>
+<figure>
+<img src="assignment-pictures/gallery-community.jpg" alt="Artisan community photograph">
+<figcaption>Artisan Community</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+<p class="section-kicker">Get in Touch</p>
+<h2>Contact Us</h2>
+<p class="section-intro">For product details, artisan information, or project enquiries, send a message.</p>
+
+<div class="contact-grid">
+<div class="contact-info">
+<h3>Gayatri Singh</h3>
+<p>Email: example@email.com</p>
+<p>Phone: 8400XXXXXX</p>
+<p>Location: Telangana, India</p>
+<p>Project: Ikat Craft Website</p>
+</div>
+<form class="contact-form">
+<input type="text" placeholder="Your name">
+<input type="email" placeholder="Your email">
+<textarea placeholder="Write your message"></textarea>
+<button class="btn btn-primary" type="button">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Ikat Craft Website | Designed by Gayatri Singh</p>
+</footer>
+
+<a class="top-link" href="#top" aria-label="Back to top">↑</a>
+</body>
+</html>
